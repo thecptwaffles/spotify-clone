@@ -1,2 +1,2 @@
 # spotify-clone
-This is a simple music player app 
+This is a simple music player web app 
