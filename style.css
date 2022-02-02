@@ -63,9 +63,31 @@ body {
     transform: translateY(0%);
     padding: 10px 10px 10px px;
     text-align: center;
+    transition: transform 0.3s ease-in opacity 0.3s ease-in;
+}
+
+.music-info h4 {
+    margin: 0;
 }
 
 .music-container.play .music-info {
     opacity: 1;
     transform: translateY(-100%);
+}
+
+.progress-container {
+    background-color: #ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+#progress {
+    background-color: #fe8daa;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.1s linear;
 }
