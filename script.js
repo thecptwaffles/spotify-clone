@@ -8,6 +8,7 @@ const progressContainer = document.querySelector('.progress-container');
 
 const title = document.getElementById('title');
 
+
 // Song titles
 const songs = ['Case', 'go', 'space'];
 
@@ -40,6 +41,33 @@ function pauseSong () {
     audio.pause()
 }
 
+function prevSong() {
+    songIndex--
+
+    if(songIndex < 0) {
+        songIndex = songs.length - 1
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+function nextSong() {
+    songIndex++
+
+    if(songIndex > songs.length -1) {
+        songIndex = 0
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+function updateProgress(e) {
+  console.log(e.srcElement.currentTime)
+}
 //event listeners
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play');
@@ -50,3 +78,11 @@ playBtn.addEventListener('click', () => {
         playSong()
     }
 })
+
+//change song event listeners
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+
+audio.addEventListener('timeUpdate', updateProgress)
+
+
